@@ -56,7 +56,7 @@ pub(crate) fn panic_catch<F: FnOnce() -> R, R>(f: F) -> Result<R, String> {
         } else if let Some(s) = err.downcast_ref::<&str>() {
             s.to_string()
         } else {
-            format!("unable to get panic info {err:?}")
+            format!("unable to get panic info {:?}", err)
         }
     })
 }
